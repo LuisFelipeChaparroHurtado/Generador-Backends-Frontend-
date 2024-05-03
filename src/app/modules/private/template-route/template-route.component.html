@@ -1,0 +1,17 @@
+<div class="wrapper wrapper--w680" *ngIf="cargaFinalizada; else esperar">
+  <form class="editor">
+    <div class="editor-toolbar" style="padding: 20px; padding-left: 55px; display: flex; justify-content: space-between;">
+      <b>{{ nameRoute.table_name.charAt(0).toUpperCase() + nameRoute.table_name.slice(1) }}Route.ts</b>
+      <button class="button button--copy" (click)="copyAll()">
+        <i class="fas" [ngClass]="copied ? 'fa-check' : 'fa-copy'"></i>&nbsp;{{ copied ? 'Copied' : 'Copy All' }}
+
+      </button>
+    </div>
+    <div class="editor-textarea" #editorTextarea>
+      <code class="language-typescript">{{ routeText }}</code>
+    </div>
+  </form>
+</div>
+
+
+<ng-template #esperar> </ng-template>

@@ -1,0 +1,244 @@
+/* Estilos globales */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Establece la fuente global */
+    overflow: hidden; /* Oculta el desbordamiento del contenido */
+}
+
+/* Estilo para imagen de fondo de la ola */
+.wave {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 100%; /* Ocupa todo el alto de la pantalla */
+    z-index: -1; /* Coloca la imagen por debajo de otros elementos */
+}
+
+/* Contenedor principal de la página */
+.container {
+    width: 100vw; /* Ocupa todo el ancho de la ventana */
+    height: 100vh; /* Ocupa todo el alto de la ventana */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas iguales */
+    grid-gap: 7rem; /* Espacio entre columnas */
+    padding: 0 2rem;
+}
+
+/* Estilo para la sección de imágenes */
+.img {
+    display: flex;
+    justify-content: flex-end; /* Alinea el contenido a la derecha */
+    align-items: center;
+}
+
+.login-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Centra el texto */
+}
+
+/* Estilo para la imagen */
+.img img {
+    width: 500px; /* Define el ancho de la imagen */
+}
+
+/* Estilo para el formulario */
+form {
+    width: 470px;
+}
+
+/* Estilo para la imagen en la sección de contenido de inicio de sesión */
+.login-content img {
+    height: 100px; /* Define la altura de la imagen */
+}
+
+/* Estilo para los encabezados de la sección de contenido de inicio de sesión */
+.login-content h2 {
+    margin: 15px 0;
+    color: #333; /* Color de texto oscuro */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    font-size: 2.9rem; /* Tamaño de fuente grande */
+}
+
+/* Estilos para los contenedores de entrada */
+.login-content .input-div {
+    position: relative;
+    display: grid;
+    grid-template-columns: 7% 93%; /* Dividido en dos columnas para ícono y entrada */
+    margin: 25px 0;
+    padding: 5px 0;
+    border-bottom: 2px solid #d9d9d9; /* Línea inferior */
+}
+
+/* Evita el margen superior adicional para el primer contenedor de entrada */
+.login-content .input-div.one {
+    margin-top: 0;
+}
+
+/* Estilo para ícono dentro de contenedores de entrada */
+.i {
+    color: #d9d9d9; /* Color de ícono claro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.i i {
+    transition: .3s; /* Transición suave para íconos */
+}
+
+/* Estilo para los divs dentro de contenedores de entrada */
+.input-div > div {
+    position: relative;
+    height: 45px; /* Altura de las entradas */
+}
+
+/* Estilo para etiquetas dentro de los divs de entrada */
+.input-div > div > h5 {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%); /* Centra verticalmente */
+    color: #999; /* Color de texto claro */
+    font-size: 18px;
+    transition: .3s;
+}
+
+/* Estilos para las transiciones de borde inferior */
+.input-div:before, .input-div:after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    width: 0%;
+    height: 2px;
+    background-color: #2f47be; /* Color de borde azul */
+    transition: .4s; /* Transición suave */
+}
+
+.input-div:before {
+    right: 50%; /* Se expande desde la derecha */
+}
+
+.input-div:after {
+    left: 50%; /* Se expande desde la izquierda */
+}
+
+/* Cuando un contenedor de entrada está enfocado, expande los bordes */
+.input-div.focus:before, .input-div.focus:after {
+    width: 50%;
+}
+
+/* Mueve la etiqueta hacia arriba y reduce su tamaño cuando el input está enfocado */
+.input-div.focus > div > h5 {
+    top: -5px;
+    font-size: 15px;
+}
+
+/* Cambia el color del ícono cuando el input está enfocado */
+.input-div.focus > .i > i {
+    color: #2f47be;
+}
+
+/* Estilo para los campos de entrada */
+.input-div > div > input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Altura completa */
+    border: none;
+    outline: none; /* Sin bordes ni resaltes */
+    background: none;
+    padding: 0.5rem 0.7rem; /* Espacio interno */
+    font-size: 1.2rem; /* Tamaño de fuente */
+    color: #555; /* Color de texto oscuro */
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Ajuste adicional para el campo de contraseña */
+.input-div.pass {
+    margin-bottom: 4px;
+}
+
+/* Estilo para enlaces */
+a {
+    display: block;
+    text-align: right;
+    text-decoration: none;
+    color: #999;
+    font-size: 0.9rem; /* Tamaño de fuente pequeño */
+    transition: .3s;
+}
+
+a:hover {
+    color: #2f47be; /* Cambia el color al pasar el ratón */
+}
+
+/* Estilo para los botones */
+.btn {
+    display: block;
+    width: 100%; /* Ancho completo */
+    height: 50px; /* Altura del botón */
+    border-radius: 25px; /* Bordes redondeados */
+    outline: none;
+    border: none; /* Sin borde */
+    background-color: #05043e; /* Color de fondo azul oscuro */
+    background-size: 200%;
+    font-size: 1.2rem; /* Tamaño de fuente */
+    color: #fff; /* Color de texto blanco */
+    font-family: 'Poppins', sans-serif; /* Fuente */
+    margin: 1rem 0; /* Margen vertical */
+    cursor: pointer;
+    transition: .5s; /* Transición suave */
+}
+
+/* Cambia la posición de fondo del botón al pasar el ratón */
+.btn:hover {
+    background-position: right;
+}
+
+/* Consultas de medios para hacer el diseño receptivo */
+@media screen and (max-width: 1050px) {
+    .container {
+        grid-gap: 5rem;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    form {
+        width: 290px;
+    }
+
+    .login-content h2 {
+        font-size: 2.4rem; /* Tamaño de fuente más pequeño */
+        margin: 8px 0;
+    }
+
+    .img img {
+        width: 400px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .container {
+        grid-template-columns: 1fr; /* Cambia a una sola columna */
+    }
+
+    .img {
+        display: none; /* Oculta la sección de imágenes */
+    }
+
+    .wave {
+        display: none; /* Oculta la imagen de fondo */
+    }
+
+    .login-content {
+        justify-content: center;
+    }
+}

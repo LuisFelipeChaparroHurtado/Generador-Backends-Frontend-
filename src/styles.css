@@ -1,0 +1,46 @@
+/* Styling for the body element */
+body {
+  overflow-y: hidden; /* Hide vertical overflow */
+  overflow-x: hidden; /* Hide horizontal overflow */
+}
+
+/* Container for windows */
+.window, 
+.prueba {
+  display: grid;
+  grid-template-rows: 100vh;
+}
+
+.window {
+  grid-template-columns: auto auto auto; /* Three columns */
+}
+
+.prueba {
+  grid-template-columns: 12vh auto; /* Two columns with specific widths */
+}
+
+/* Styling for the header of windows */
+.window-header {
+  background-color: #05043e;
+}
+
+/* Media query for mobile devices (max-width: 767px) */
+@media (max-width: 767px) {
+  body {
+    font-size: 16px;
+  }
+
+  /* Adjustments for the window container on mobile devices */
+  .window {
+    grid-template-rows: 191vh; /* Increase the height of the window container */
+  }
+
+  /* Additional styles for the editor textarea on mobile devices */
+  .editor-textarea {
+    margin-top: -1px;
+    border: 1px solid #ddd;
+    padding: 0.75em;
+    min-width: 10vh;
+    max-height: 100vh;
+  }
+}

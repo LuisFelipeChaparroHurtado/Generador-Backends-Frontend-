@@ -1,0 +1,240 @@
+/* Body styling */
+body {
+  font-family: "Inter", sans-serif;
+  line-height: 1.5;
+  overflow-y: hidden;
+}
+
+/* Styling for form inputs, buttons, selects, and textareas */
+input,
+button,
+select,
+textarea {
+  font: inherit;
+}
+
+/* Styling for images */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Header styling */
+.window-header {
+  background-color: #05043e;
+}
+
+/* Main body styling for centered content */
+.window-main-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  transform: translate(-60%, -50%);
+}
+
+/* Panel styling */
+.window-panel {
+  background-color: #19194a;
+  padding: 2rem;
+  position: relative;
+  overflow-y: auto;
+}
+
+/* Scrollbar styling */
+.window-panel::-webkit-scrollbar {
+  width: 15px;
+  background-color: #19194a;
+}
+
+.window-panel::-webkit-scrollbar-thumb {
+  width: 5px;
+  border-radius: 99em;
+  background-color: #535377;
+  border: 5px solid #19194a;
+}
+
+.window-panel:after {
+  content: "";
+  width: calc(100% + 4rem);
+  height: 50px;
+  margin-left: -2rem;
+  bottom: -2rem;
+  background-image: linear-gradient(to top, #19194a 0%, transparent 100%);
+  display: block;
+  position: sticky;
+  z-index: 100;
+}
+
+/* Section styling */
+.settings-section {
+  padding: 1.5rem;
+}
+
+.settings-section + * {
+  border-top: 1px solid #ddd;
+}
+
+/* Section title styling */
+.section-title {
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #565656;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.window-panel .section-title {
+  color: #8c8ca5;
+}
+
+/* Button styling */
+.button {
+  display: inline-flex;
+  align-items: center;
+  border: 0;
+  padding: 0.375em 0.75em;
+  border-radius: 4px;
+  background-color: transparent;
+  cursor: pointer;
+  border-bottom: 1px solid;
+  margin-right: 0.5rem;
+  transition: 0.25s ease;
+  font-weight: 500;
+}
+
+.button svg {
+  margin-right: 0.375em;
+  width: 1.25em;
+  height: 1.25em;
+}
+
+.button--save {
+  background-color: #e0e4fa;
+  color: #05043e;
+}
+
+.button--save:hover {
+  color: #e0e4fa;
+  background-color: #05043e;
+}
+
+/* Form input styling */
+input {
+  outline: none;
+  margin: 0;
+  border: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  width: 100%;
+  font-family: inherit;
+}
+
+/* Styling for input groups */
+.input-group {
+  position: relative;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #ccc;
+}
+
+/* Styling for input icons */
+.input-icon {
+  position: absolute;
+  font-size: 18px;
+  color: #ccc;
+  right: 8px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+/* Styling for style 1 input */
+.input--style-1 {
+  padding: 9px 0;
+  color: #666;
+}
+
+/* Styling for different browser input placeholders */
+.input--style-1::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: #555;
+}
+
+.input--style-1:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #555;
+  opacity: 1;
+}
+
+.input--style-1::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #555;
+  opacity: 1;
+}
+
+.input--style-1:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #555;
+}
+
+.input--style-1:-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #555;
+}
+
+/* Card styling */
+.card {
+  overflow: hidden;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background: #fff;
+}
+
+/* Styling for card type 1 */
+.card-1 {
+  width: 120vh;
+  -webkit-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+}
+
+/* Card body styling */
+.card-1 .card-body {
+  padding: 0 90px;
+  padding-top: 55px;
+  padding-bottom: 65px;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 767px) {
+  .card-1 .card-body {
+    padding: 0 40px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+
+/* Text area styling for an editor */
+.editor-textarea {
+  background-color: #fff; /* Sets the background color */
+  min-height: 70vh; /* Sets the minimum height */
+  max-width: 100%; /* Sets the maximum width */
+  padding: 0; /* Removes padding */
+  overflow: hidden; /* Hides overflow */
+  font-family: "Courier New", monospace; /* Sets the font family */
+  white-space: pre-line; /* Maintains line breaks */
+  word-wrap: break-word; /* Breaks long words */
+  padding: 50px; /* Adds padding */
+  border: 1px solid #ccc; /* Adds a border */
+  overflow: auto; /* Allows overflow scrolling */
+  max-height: 300px; /* Sets the maximum height */
+}

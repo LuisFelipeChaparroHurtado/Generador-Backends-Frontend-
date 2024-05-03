@@ -1,0 +1,161 @@
+html, body {
+  /* Set the height of the HTML and body elements to 100% */
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  /* Center the content horizontally and vertically in the container */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.editor {
+  /* Center the content horizontally and vertically in the editor */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ensure the editor takes up the full height of the viewport */
+  background-color: white;
+}
+
+.editor-input-group {
+  /* Define the editor input group layout */
+  display: flex;
+  flex-direction: column;
+}
+
+.editor-input-group + * {
+  /* Add margin-top to elements that follow an editor input group */
+  margin-top: 1.5rem;
+}
+
+.section-title {
+  /* Style the section title */
+  text-align: center;
+  padding: 30px 0;
+  position: relative;
+}
+
+.section-title h2 {
+  /* Style the section title heading */
+  font-size: 32px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  color: #05043e;
+  position: relative;
+  z-index: 2;
+}
+
+.section-title span {
+  /* Style the section title span element */
+  position: absolute;
+  top: 30px;
+  color: #d5d4f6;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  font-weight: 700;
+  font-size: 35px;
+  text-transform: uppercase;
+  line-height: 0;
+}
+
+@media (max-width: 575px) {
+  /* Responsive styles for small screens */
+  .section-title h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+
+  .section-title span {
+    font-size: 38px;
+  }
+}
+
+.rounded-image {
+  /* Style for a rounded image */
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+}
+
+.card {
+  /* Style for a card */
+  width: 1000px;
+}
+
+.laManito {
+  /* Cursor style for clickable elements */
+  cursor: pointer;
+}
+
+/* Button styles */
+.button {
+  display: inline-flex;
+  align-items: center;
+  border: 0;
+  padding: 0.375em 0.75em;
+  border-radius: 4px;
+  background-color: transparent;
+  cursor: pointer;
+  border-bottom: 1px solid;
+  margin-right: 0.5rem;
+  transition: 0.25s ease;
+  font-weight: 500;
+}
+
+.button svg {
+  /* Style the icon inside a button */
+  margin-right: 0.375em;
+  width: 1.25em;
+  height: 1.25em;
+}
+
+.button--save {
+  /* Style for a save button */
+  background-color: #e0e4fa;
+  color: #05043e;
+}
+
+.button--save:hover {
+  /* Hover style for a save button */
+  color: #e0e4fa;
+  background-color: #05043e;
+}
+
+.disabled-link {
+  /* Style for a disabled link */
+  cursor: not-allowed;
+  pointer-events: none;
+  color: #ccc;
+}
+
+.disabled-icon {
+  /* Style for a disabled icon */
+  cursor: not-allowed !important;
+  color: #ccc !important; /* Gray icon color to indicate disabled state */
+}
+
+.table-container {
+  /* Style for a table container */
+  max-height: 400px; /* Set maximum table height */
+  overflow-y: auto; /* Enable vertical scrolling when content exceeds max height */
+}
+
+.btn-cancel {
+  /* Style for a cancel button */
+  background-color: #05043e;
+  color: white;
+}
+
+.btn-cancel:hover {
+  /* Hover style for a cancel button */
+  background-color: white;
+  color: #05043e;
+}

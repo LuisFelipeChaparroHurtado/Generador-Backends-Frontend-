@@ -1,0 +1,154 @@
+<div style="max-height: 100vh; overflow-y: auto">
+  <form class="editor">
+    <div class="editor-textarea">
+      <section id="about" class="about">
+        <div class="container">
+          <div class="row" style="justify-content: center; align-items: center">
+            <div class="content" data-aos="fade-right">
+              <div class="section-title">
+                <span>MANAGE USERS</span>
+                <h2>MANAGE USERS</h2>
+              </div>
+              <br />
+              <div class="card">
+                <div
+                  class="card-header"
+                  style="background-color: #05043e; color: white"
+                >
+                  User information
+                </div>
+                <div class="card-body">
+                  <div class="table-container">
+                    <table class="table table-striped">
+                      <thead class="table-light">
+                        <tr>
+                          <th class="text-center" style="width: 10%">Id</th>
+                          <th style="width: 30%">Name</th>
+                          <th style="width: 30%">Email</th>
+                          <th style="width: 15%">Creation Date</th>
+                          <th style="width: 5%">Profile</th>
+                          <th style="width: 5%"></th>
+                          <th style="width: 5%"></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let objUser of listUsers; let i = index">
+                          <td class="align-middle text-center">
+                            <small>{{ i + 1 }}</small>
+                          </td>
+                          <td class="align-middle">
+                            <small> {{ objUser.full_name }} </small>
+                          </td>
+                          <td class="align-middle">
+                            <small> {{ objUser.email_user }} </small>
+                          </td>
+
+                          <td class="align-middle">
+                            <small> {{ formatDate(objUser.date_user) }} </small>
+                          </td>
+                          <td class="align-middle">
+                            <small> {{ objUser.profile }} </small>
+                          </td>
+
+                          <td class="text-center align-middle">
+                            &nbsp;
+
+                            <a
+                              [routerLink]="[
+                                '/private/dash/datauser',
+                                objUser.id_user
+                              ]"
+                              aria-label="Update user"
+                              style="cursor: pointer"
+                              [ngClass]="{
+                                'disabled-link': objUser.profile === 'ADMIN'
+                              }"
+                            >
+                              <i
+                                class="fa-regular fa-pen-to-square"
+                                style="color: #05043e"
+                                [ngClass]="{
+                                  'disabled-icon': objUser.profile === 'ADMIN'
+                                }"
+                              ></i>
+                            </a>
+                          </td>
+                          <td class="text-center align-middle">
+                            <i
+                              style="cursor: pointer"
+                              (click)="openModal(modalDelete, objUser)"
+                              class="fa-solid fa-trash-can fa-sm text-danger"
+                              [ngClass]="{
+                                'disabled-icon':
+                                  objMySession.id === objUser.id_user
+                              }"
+                            ></i>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div
+                  class="card-footer d-flex align-items-center justify-content-between"
+                  style="background-color: #05043e; color: white"
+                >
+                
+                  <a
+                    [routerLink]="['/private/dash/profile']"
+                    aria-label="Profile"
+                  >
+                    <i
+                      class="fa-solid fa-arrow-left"
+                      style="cursor: pointer; color: white"
+                    ></i>
+                    
+                  </a>
+                  <a
+                    [routerLink]="['/private/dash/createUser']"
+                    aria-label="Create user"
+                  >
+                    <i
+                      class="bi bi-person-plus"
+                      style="cursor: pointer; color: white"
+                    ></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </form>
+</div>
+<ng-template #modalDelete>
+  <div
+    class="modal-header text-white"
+    style="padding: 4px; background-color: #05043e"
+  >
+    <h5 class="modal-title">&nbsp;&nbsp;{{ modalTitle }}</h5>
+    <button
+      type="button"
+      class="btn btn-sm text-white"
+      aria-label="Close"
+      (click)="modalRef.hide()"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>
+      {{ modalBody }}<br />
+      <strong>{{ modalContent }}</strong>
+    </p>
+  </div>
+  <div class="modal-footer" style="padding: 4px">
+    <button type="button" class="btn btn-danger btn-sm" (click)="btnDelete()">
+      Delete
+    </button>
+    <button type="button" class="btn btn-sm btn-cancel" (click)="btnCancel()">
+      Cancel
+    </button>
+  </div>
+</ng-template>

@@ -1,0 +1,57 @@
+<img class="wave" src="./../../../../assets/img/image.png" alt="wave" />
+<div class="container">
+  <div class="img">
+    <img src="./../../../../assets/img/bg.svg" alt="background"/>
+  </div>
+  <div class="login-content">
+    <form
+      #frmLogin="ngForm"
+      (submit)="frmLogin.form.valid && operation(frmLogin)"
+      novalidate
+    >
+      <img src="./../../../../assets/img/avatar.svg" alt="avatar"/>
+      <h2 class="title">Welcome to the generator</h2>
+      <div class="input-div one">
+        <div class="i">
+          <i class="fas fa-user" style="color: #05043e"></i>
+        </div>
+        <div class="div">
+          <input
+            type="email"
+            id="email"
+            name="name"
+            class="input"
+            placeholder="User Email"
+            #email="ngModel"
+            [(ngModel)]="objUser.emailUser"
+            [ngClass]="{
+              'is-valid': frmLogin.submitted && email.valid,
+              'is-invalid': frmLogin.submitted && email.invalid
+            }"
+            required
+          />
+        </div>
+      </div>
+      <div class="input-div pass">
+        <div class="i">
+          <i class="fas fa-lock" style="color: #05043e"></i>
+        </div>
+        <div class="div">
+          <input
+            type="password"
+            id="password"
+            name="password"
+            #password="ngModel"
+            class="input"
+            placeholder="Password"
+            [(ngModel)]="objUser.passwordUser"
+            [ngClass]="{ 'is-valid': frmLogin.submitted && password.invalid }"
+            required
+          />
+        </div>
+      </div>
+      <!-- <a href="#" style="color: #05043e">Forgot Password?</a> -->
+      <input type="submit" class="btn" value="Log in" />
+    </form>
+  </div>
+</div>

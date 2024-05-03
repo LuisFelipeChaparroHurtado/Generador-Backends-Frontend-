@@ -1,0 +1,21 @@
+<div class="wrapper wrapper--w680" *ngIf="cargaFinalizada; else esperar">
+  <form class="editor">
+    <div class="editor-toolbar" style="padding: 20px; padding-left: 55px; display: flex; justify-content: space-between;">
+      <b
+        >{{
+          nameDao.table_name.charAt(0).toUpperCase() +
+            nameDao.table_name.slice(1)
+        }}DAO.ts</b
+      >
+      <button class="button button--copy" (click)="copyAll()">
+        <i class="fas" [ngClass]="copied ? 'fa-check' : 'fa-copy'"></i>&nbsp;{{ copied ? 'Copied' : 'Copy All' }}
+
+      </button>
+    </div>
+    <div class="editor-textarea" #editorTextarea>
+      <code class="language-typescript">{{ daoText }}</code>
+    </div>
+  </form>
+</div>
+
+<ng-template #esperar> </ng-template>

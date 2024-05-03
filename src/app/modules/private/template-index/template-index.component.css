@@ -1,0 +1,91 @@
+/* Styles for the editor container */
+.editor {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  /* Centers content vertically */
+  padding-bottom: 5rem;  /* Bottom padding */
+  padding-left: 5vw;  /* Left padding */
+  padding-right: 5vw;  /* Right padding */
+  height: 100vh;  /* Full viewport height */
+  overflow-y: auto;  /* Vertical overflow */
+  background-color: #efefef;  /* Light gray background */
+}
+
+/* Styles for the editor toolbar */
+.editor-toolbar {
+  background-color: #fff;  /* White background */
+  border: 1px solid #ddd;  /* Light gray border */
+  padding: 0.5rem;  /* Padding */
+  display: flex;
+  flex-wrap: wrap;  /* Allows wrapping of child elements */
+  top: calc(-3rem - 1px);  /* Sticky toolbar positioned above the content */
+  position: sticky;
+  z-index: 200;  /* Z-index for stacking context */
+  align-items: center;  /* Aligns items vertically */
+}
+
+/* Styles for the separator in the editor toolbar */
+.separator {
+  height: 1rem;  /* Height */
+  width: 2px;  /* Width */
+  background-color: #ddd;  /* Light gray background */
+  display: block;
+  margin-left: 0.625rem;  /* Left margin */
+  margin-right: 0.625rem;  /* Right margin */
+}
+
+/* Styles for the editor textarea */
+.editor-textarea {
+  background-color: #fff;  /* White background */
+  min-height: 70vh;  /* Minimum height */
+  max-width: 100%;  /* Maximum width */
+  padding: 0;  /* Padding */
+  overflow: hidden;
+  font-family: "Courier New", monospace;  /* Monospace font */
+  white-space: pre-line;  /* Preserves whitespace and line breaks */
+  word-wrap: break-word;  /* Wraps long lines */
+  padding: 40px;  /* Padding */
+  border: 1px solid #ccc;  /* Light gray border */
+  overflow: auto;  /* Allows scrolling */
+  max-height: 300px;  /* Maximum height */
+  padding-left: 10%;  /* Left padding */
+}
+
+/* Styles for the code inside the editor textarea */
+.editor-textarea code {
+  color: black;  /* Black color for code */
+}
+
+/* Styles for the button component */
+.button {
+  display: inline-flex;  /* Inline flex display */
+  align-items: center;  /* Aligns items vertically */
+  border: 0;  /* No border */
+  padding: 0.375em 0.75em;  /* Padding */
+  border-radius: 4px;  /* Rounded corners */
+  background-color: transparent;  /* Transparent background */
+  cursor: pointer;  /* Pointer cursor */
+  border-bottom: 1px solid;  /* Bottom border */
+  margin-right: 0.5rem;  /* Right margin */
+  transition: 0.25s ease;  /* Transition effect */
+  font-weight: 500;  /* Font weight */
+}
+
+/* Styles for SVG icons inside buttons */
+.button svg {
+  margin-right: 0.375em;  /* Right margin */
+  width: 1.25em;  /* Width */
+  height: 1.25em;  /* Height */
+}
+
+/* Styles for the copy button */
+.button--copy {
+  background-color: #e0e4fa;  /* Light blue background */
+  color: #05043e;  /* Dark text color */
+}
+
+/* Hover effect for the copy button */
+.button--copy:hover {
+  color: #e0e4fa;  /* Light blue text color */
+  background-color: #05043e;  /* Dark background color */
+}

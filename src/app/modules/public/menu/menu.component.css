@@ -1,0 +1,513 @@
+/* Basic style for the body */
+body {
+  font-family: "Inter", sans-serif;
+  line-height: 1.5;
+  overflow-y: hidden; /* Prevent vertical scrolling */
+}
+
+/* Style for form elements */
+input,
+button,
+select,
+textarea {
+  font: inherit; /* Inherit font from parent */
+}
+
+/* Style for images */
+img {
+  display: block;
+  max-width: 100%; /* Ensure images don't overflow */
+}
+
+/* Main layout for the editor */
+.window-main-body {
+  display: grid;
+  grid-template-columns: 4fr;
+  grid-template-rows: calc(100vh);
+}
+
+/* Editor styling */
+.editor {
+  padding: 3rem 5vw 5rem 5vw; /* Padding on all sides */
+  height: 100%;
+  overflow-y: auto; /* Enable vertical scrolling */
+  background-color: white;
+}
+
+/* Styling for input groups */
+.editor-input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.editor-input-group + * {
+  margin-top: 1.5rem; /* Space between elements */
+}
+
+/* Styling for input labels */
+.editor-input-label {
+  font-weight: 600; /* Make the label bold */
+}
+
+/* Styling for textareas */
+.editor-textarea {
+  margin-top: -1px;
+  border: 1px solid white;
+  padding: 0.75em;
+}
+
+/* Toolbar styling in the editor */
+.editor-toolbar {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  position: sticky;
+  top: calc(-3rem - 1px); /* Position the toolbar */
+  z-index: 200; /* Keep the toolbar above other content */
+  align-items: center;
+}
+
+/* Styling for toolbar items */
+.editor-toolbar-item {
+  background-color: transparent;
+  border: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px; /* Rounded corners */
+  transition: 0.15s ease;
+}
+
+/* Size for icon items in the toolbar */
+.editor-toolbar-item.icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+/* Size for dropdown items in the toolbar */
+.editor-toolbar-item.dropdown {
+  min-width: 150px;
+  justify-content: space-between;
+  height: 2rem;
+}
+
+/* Styling for icons in the toolbar */
+.editor-toolbar-item svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Hover effect for toolbar items */
+.editor-toolbar-item:hover {
+  background-color: #ededed;
+}
+
+/* Section title styling */
+.section-title {
+  text-align: center;
+  padding: 30px 0;
+  position: relative;
+}
+
+.section-title h2 {
+  font-size: 32px;
+  font-weight: 700; /* Make the title bold */
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  padding-bottom: 0;
+  color: #05043e;
+  position: relative;
+  z-index: 2;
+}
+
+.section-title span {
+  position: absolute;
+  top: 30px;
+  color: #d5d4f6;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  font-weight: 700;
+  font-size: 52px;
+  text-transform: uppercase;
+  line-height: 0;
+}
+
+.section-title p {
+  margin-bottom: 0;
+  position: relative;
+  z-index: 2;
+}
+
+/* Responsive adjustments for section titles */
+@media (max-width: 575px) {
+  .section-title h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+
+  .section-title span {
+    font-size: 38px;
+  }
+}
+
+/*----------------------------------------------
+  Hero Section
+----------------------------------------------*/
+.title {
+  font-family: "Montserrat";
+  text-align: center;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 1px;
+}
+
+.templateTittle {
+  background-image: url(https://media.giphy.com/media/CKlafeh1NAxz35KTq4/giphy-downsized-large.gif);
+  background-size: cover;
+  color: transparent;
+  -moz-background-clip: text;
+  -webkit-background-clip: text;
+  text-transform: uppercase;
+  font-size: 7rem;
+  font-weight: 800;
+  line-height: 0.75;
+  margin: 10px 0;
+}
+
+/*--------------------------------------------------------------
+  Sections & Section Header
+--------------------------------------------------------------*/
+
+.section-bg {
+  background-color: #f5f6f7; /* Background color for sections */
+}
+
+.section-header {
+  text-align: center;
+  padding-bottom: 70px;
+}
+
+.section-header h2 {
+  font-size: 32px;
+  font-weight: 700; /* Bold title */
+  position: relative;
+  color: #05043e;
+}
+
+.section-header h2:before,
+.section-header h2:after {
+  content: "";
+  width: 230px;
+  height: 3px;
+  background: #05043e; /* Decorative lines */
+  display: inline-block;
+}
+
+.section-header h2:before {
+  margin: 0 15px 10px 0;
+}
+
+.section-header h2:after {
+  margin: 0 0 10px 15px;
+}
+
+.section-header p {
+  margin: 0 auto; /* Center the paragraph */
+}
+
+/*--------------------------------------------------------------
+  Constructions Section
+--------------------------------------------------------------*/
+.constructions .card-item {
+  border: 1px solid white;
+  background: #05043e;
+  position: relative;
+  border-radius: 0;
+}
+
+.constructions .card-item .card-bg {
+  min-height: 300px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.constructions .card-item .card-body {
+  padding: 30px;
+}
+
+.constructions .card-item h4 {
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: white;
+}
+
+.constructions .card-item p {
+  color: white;
+  margin: 0;
+  font-size: 15px;
+  text-align: justify;
+}
+
+.text-intro {
+  font-size: 1.1rem;
+  text-align: justify;
+}
+
+/*--------------------------------------------------------------
+  About Section
+--------------------------------------------------------------*/
+.about .content h3 {
+  font-weight: 600;
+  font-size: 26px;
+}
+
+.about .content ul {
+  list-style: none; /* Remove bullet points */
+  padding: 0;
+}
+
+.about .content ul li {
+  padding-bottom: 10px;
+}
+
+.about .content ul i {
+  font-size: 20px;
+  padding-right: 4px;
+  color: #05043e;
+}
+
+.about .content p:last-child {
+  margin-bottom: 0;
+}
+
+.alinear {
+  justify-content: center;
+  align-items: center !important;
+}
+
+/*--------------------------------------------------------------
+  Contact Section
+--------------------------------------------------------------*/
+.contact .info-box {
+  color: #444444;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(8, 6, 146, 0.295);
+  padding: 20px 0 30px 0;
+}
+
+.contact .info-box i {
+  font-size: 32px;
+  color: #05043e;
+  border-radius: 80%;
+  padding: 20px;
+  border: 2px dotted #05043e;
+}
+
+.contact .info-box h3 {
+  font-size: 20px;
+  color: #05043e;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.contact .info-box p {
+  padding: 0;
+  line-height: 24px;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.contact .php-email-form {
+  box-shadow: 0 0 30px rgba(8, 6, 146, 0.295);
+  padding: 30px;
+}
+
+.contact .php-email-form .error-message {
+  display: none;
+  color: #fff;
+  background: #ed3c0d;
+  text-align: left;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.contact .php-email-form .error-message br + br {
+  margin-top: 25px;
+}
+
+.contact .php-email-form .sent-message {
+  display: none;
+  color: #fff;
+  background: #18d26e;
+  text-align: center;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.contact .php-email-form .loading {
+  display: none;
+  background: #fff;
+  text-align: center;
+  padding: 15px;
+}
+
+.contact .php-email-form .loading:before {
+  content: "";
+  display: inline-block;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin: 0 10px -6px 0;
+  border: 3px solid #18d26e;
+  border-top-color: #eee;
+  animation: animate-loading 1s linear infinite;
+}
+
+.contact .php-email-form input,
+.contact .php-email-form textarea {
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 14px;
+}
+
+.contact .php-email-form input::focus,
+.contact .php-email-form textarea::focus {
+  background-color: #05043e;
+}
+
+.contact .php-email-form input {
+  padding: 10px 15px;
+}
+
+.contact .php-email-form textarea {
+  padding: 12px 15px;
+}
+
+.contact .php-email-form button[type="submit"] {
+  background: #05043e;
+  border: 0;
+  padding: 10px 24px;
+  color: #fff;
+  transition: 0.4s;
+}
+
+.contact .php-email-form button[type="submit"]:hover {
+  background: #05043ec4;
+}
+
+/* Animation for loading spinner */
+@keyframes animate-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Styling for "how to use" cards */
+.how-use .how-use-card {
+  box-shadow: 7px 5px 30px rgba(72, 73, 121, 0.15);
+  background: var(--whiteColor);
+  margin-bottom: 30px;
+  border-radius: 20px;
+  text-align: center;
+  position: relative;
+  padding: 45px 30px;
+}
+
+/* Styling for accordion buttons */
+.accordion-button {
+  background-color: #05043e; /* Dark blue color */
+  color: white; /* White text */
+  border: none; /* No border */
+  border-radius: 10px; /* Rounded corners */
+  padding: 15px 20px; /* Padding */
+  margin-bottom: 10px; /* Space between buttons */
+  transition: background-color 0.3s ease; /* Smooth background transition */
+}
+
+/* Hover effect for accordion buttons */
+.accordion-button:hover {
+  background-color: #2b2a5b; /* Darker blue on hover */
+}
+
+/*
+---------------------------------------
+Popular Categories
+---------------------------------------
+*/
+
+/* Popular categories section header */
+.popular-categories .section-heading {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+/* Thumbnail styling for popular categories */
+.popular-categories .naccs .menu .thumb {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Icon styling in popular categories */
+.popular-categories .menu .thumb .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  color: #8d99af;
+  background-color: #fff;
+  margin-right: 15px;
+}
+
+.popular-categories .menu .thumb .icon img {
+  max-width: 27px;
+}
+
+/* Active state styling for popular categories */
+.popular-categories .naccs .menu .thumb.active {
+  background-color: #2b2d42;
+  color: black;
+}
+
+/* Active state styling for icon in popular categories */
+.popular-categories .naccs .menu .thumb.active .icon {
+  background-color: #8d99af;
+}
+
+/* Styling for accordion list items */
+.popular-categories .naccs ul.nacc li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  transition: opacity 0.5s ease, height 0.5s ease; /* Smooth transitions */
+}
+
+/* Active state styling for accordion list items */
+.popular-categories .naccs ul.nacc li.active {
+  opacity: 1;
+  height: auto;
+}
+
+/* Styling for active buttons in popular categories */
+.popular-categories .naccs .menu .thumb.active .accordion-button {
+  background-color: #2b2d42; /* Dark blue */
+  color: #fff; /* White text */
+}
+
+/* Add other specific styles as needed */

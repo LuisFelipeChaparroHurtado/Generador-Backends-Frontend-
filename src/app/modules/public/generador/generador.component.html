@@ -1,0 +1,117 @@
+<div class="window-main-body">
+  <div class="card card-1">
+    <div class="row g-0">
+      <div class="col-md-10">
+        <div class="card-body">
+          <h2 class="title">Database connection</h2>
+          <form
+            #frmLogin="ngForm"
+            (submit)="frmLogin.form.valid && testConnectionDb(frmLogin)"
+            novalidate
+          >
+            <div class="input-group">
+              <input
+                class="input--style-1"
+                type="text"
+                id="user"
+                name="user"
+                placeholder="USER"
+                #user="ngModel"
+                [(ngModel)]="objConnection.user"
+                [ngClass]="{
+                  'is-valid': frmLogin.submitted && user.invalid
+                }"
+                required
+              />
+            </div>
+                <div class="input-group">
+                  <input
+                    class="input--style-1"
+                    type="text"
+                    type="text"
+                    id="host"
+                    name="host"
+                    placeholder="HOST"
+                    #host="ngModel"
+                    [(ngModel)]="objConnection.host"
+                    [ngClass]="{
+                      'is-valid': frmLogin.submitted && host.invalid
+                    }"
+                    required
+                  />
+                </div>
+
+            <div class="input-group">
+              <input
+                class="input--style-1"
+                type="text"
+                id="database"
+                name="database"
+                placeholder="DATABASE"
+                #database="ngModel"
+                [(ngModel)]="objConnection.database"
+                [ngClass]="{
+                  'is-valid': frmLogin.submitted && database.invalid
+                }"
+                required
+              />
+            </div>
+
+            <div class="row row-space">
+              <div class="col-5">
+                <div class="input-group">
+                  <input
+                    class="input--style-1"
+                    type="text"
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="PASSWORD"
+                    #password="ngModel"
+                    [(ngModel)]="objConnection.password"
+                    [ngClass]="{
+                      'is-valid': frmLogin.submitted && password.invalid
+                    }"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="col-5">
+                <div class="input-group">
+                  <input
+                    class="input--style-1"
+                    type="text"
+                    type="text"
+                    id="port"
+                    name="port"
+                    placeholder="PORT"
+                    #port="ngModel"
+                    [(ngModel)]="objConnection.port"
+                    [ngClass]="{
+                      'is-valid': frmLogin.submitted && port.invalid
+                    }"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="p-t-20">
+              <div class="publish-actions">
+                <button type="submit" class="button button--save">
+                  Submit
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-2" style="background-color: #05043e">
+        <h1 style="height: 100%"></h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #bdConConexion>
+  <p></p>
+</ng-template>

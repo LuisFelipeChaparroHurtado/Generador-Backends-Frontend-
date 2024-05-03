@@ -1,0 +1,243 @@
+<div class="window-panel" style="max-height: 100vh; overflow-y: auto">
+  <h2 class="section-title" style="font-size: 1rem; margin-left: -1rem">
+    Explorer
+  </h2>
+  <h3 class="section-title" style="font-size: 0.75rem; margin-left: -1rem">
+    Open Editors &nbsp;&nbsp;<i class="fa-solid fa-chevron-right"></i>
+  </h3>
+  <a [routerLink]="['/private/dash/template/projectMenu']" style="text-decoration: none;">
+    <h3 class="section-title" style="font-size: 0.75rem; margin-left: -1rem">
+      Backend project &nbsp;&nbsp;<i class="fa-solid fa-chevron-down"></i>
+    </h3>
+  </a>
+  
+  <ul class="tree">
+    <li class="tree-branch tree-branch--sub">
+      <div class="tree-branch-action">
+        <a class="tree-branch-link tree-branch-link--sub no-link">config</a>
+      </div>
+      <ul class="tree tree--sub">
+        <li class="tree-branch tree-branch--sub">
+          <div class="tree-branch-action">
+            <a class="tree-branch-link tree-branch-link--sub no-link">api</a>
+          </div>
+          <ul class="tree tree--sub">
+            <li class="tree-branch tree-branch--sub">
+              <div class="tree-branch-action">
+                <a
+                  [routerLink]="['/private/dash/template/server']"
+                  class="tree-branch-link tree-branch-link--sub"
+                  >Server.ts</a
+                >
+                <button
+                  [routerLink]="['/private/dash/template/server']"
+                  class="tree-branch-button"
+                >
+                  +
+                </button>
+              </div>
+            </li>
+          </ul>
+        </li>
+
+        <li class="tree-branch tree-branch--sub">
+          <div class="tree-branch-action">
+            <a class="tree-branch-link tree-branch-link--sub no-link"
+              >connection</a
+            >
+          </div>
+          <ul class="tree tree--sub">
+            <li class="tree-branch tree-branch--sub">
+              <div class="tree-branch-action">
+                <a
+                  [routerLink]="['/private/dash/template/connectiondb']"
+                  class="tree-branch-link tree-branch-link--sub"
+                  >connectionDB.ts</a
+                >
+                <button
+                  [routerLink]="['/private/dash/template/connectiondb']"
+                  class="tree-branch-button"
+                >
+                  +
+                </button>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li class="tree-branch tree-branch--sub">
+          <div class="tree-branch-action">
+            <a class="tree-branch-link tree-branch-link--sub no-link"
+              >domains</a
+            >
+          </div>
+          <ul class="tree tree--sub">
+            <li class="tree-branch tree-branch--sub">
+              <div class="tree-branch-action">
+                <a
+                  [routerLink]="['/private/dash/template/vardatabase']"
+                  class="tree-branch-link tree-branch-link--sub"
+                  >var_database.ts</a
+                >
+                <button
+                  [routerLink]="['/private/dash/template/vardatabase']"
+                  class="tree-branch-button"
+                >
+                  +
+                </button>
+              </div>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <ul class="tree tree--sub">
+      <li class="tree-branch tree-branch--sub">
+        <div class="tree-branch-action">
+          <a class="tree-branch-link tree-branch-link--sub no-link"
+            >controller</a
+          >
+        </div>
+        <ul
+          class="tree tree--sub"
+          *ngFor="let objTables of arregloTables; let i = index"
+        >
+          <li class="tree-branch tree-branch--sub">
+            <div class="tree-branch-action">
+              <a
+                [href]="'/private/dash/template/controller/' + i"
+                class="tree-branch-link tree-branch-link--sub"
+                >{{
+                  objTables.table_name.charAt(0).toUpperCase() +
+                    objTables.table_name.slice(1)
+                }}{{ "Controller.ts" }}</a
+              >
+              <button class="tree-branch-button">
+                <a
+                  [href]="'/private/dash/template/controller/' + i"
+                  style="cursor: pointer; text-decoration: none; color: white"
+                >
+                  +
+                </a>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="tree tree--sub">
+      <li class="tree-branch tree-branch--sub">
+        <div class="tree-branch-action">
+          <a class="tree-branch-link tree-branch-link--sub no-link">dao</a>
+        </div>
+        <ul
+          class="tree tree--sub"
+          *ngFor="let objTables of arregloTables; let i = index"
+        >
+          <li class="tree-branch tree-branch--sub">
+            <div class="tree-branch-action">
+              <a
+                [href]="'/private/dash/template/dao/' + i"
+                class="tree-branch-link tree-branch-link--sub"
+                >{{
+                  objTables.table_name.charAt(0).toUpperCase() +
+                    objTables.table_name.slice(1)
+                }}{{ "DAO.ts" }}</a
+              >
+              <button class="tree-branch-button">
+                <a
+                  [href]="'/private/dash/template/dao/' + i"
+                  style="cursor: pointer; text-decoration: none; color: white"
+                >
+                  +
+                </a>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="tree tree--sub">
+      <li class="tree-branch tree-branch--sub">
+        <div class="tree-branch-action">
+          <a class="tree-branch-link tree-branch-link--sub no-link">models</a>
+        </div>
+        <ul
+          class="tree tree--sub"
+          *ngFor="let objTables of arregloTables; let i = index"
+        >
+          <li class="tree-branch tree-branch--sub">
+            <div class="tree-branch-action">
+              <a
+                style="cursor: pointer"
+                class="tree-branch-link tree-branch-link--sub"
+                [href]="'/private/dash/template/models/' + i"
+              >
+                {{
+                  objTables.table_name.charAt(0).toUpperCase() +
+                    objTables.table_name.slice(1)
+                }}{{ ".ts" }}
+              </a>
+              <button class="tree-branch-button">
+                <a
+                  [href]="'/private/dash/template/models/' + i"
+                  style="cursor: pointer; text-decoration: none; color: white"
+                >
+                  +
+                </a>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <ul class="tree tree--sub">
+      <li class="tree-branch tree-branch--sub">
+        <div class="tree-branch-action">
+          <a class="tree-branch-link tree-branch-link--sub no-link">routes</a>
+        </div>
+        <ul
+          class="tree tree--sub"
+          *ngFor="let objTables of arregloTables; let i = index"
+        >
+          <li class="tree-branch tree-branch--sub">
+            <div class="tree-branch-action">
+              <a
+                [href]="'/private/dash/template/route/' + i"
+                class="tree-branch-link tree-branch-link--sub"
+                >{{
+                  objTables.table_name.charAt(0).toUpperCase() +
+                    objTables.table_name.slice(1)
+                }}{{ "Route.ts" }}</a
+              >
+              <button class="tree-branch-button">
+                <a
+                  [href]="'/private/dash/template/route/' + i"
+                  style="cursor: pointer; text-decoration: none; color: white"
+                >
+                  +
+                </a>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <li class="tree-branch tree-branch--sub">
+      <div class="tree-branch-action">
+        <a
+          [routerLink]="['/private/dash/template/index']"
+          class="tree-branch-link tree-branch-link--sub"
+          >index.ts</a
+        >
+        <button
+          [routerLink]="['/private/dash/template/index']"
+          class="tree-branch-button"
+        >
+          +
+        </button>
+      </div>
+    </li>
+  </ul>
+</div>

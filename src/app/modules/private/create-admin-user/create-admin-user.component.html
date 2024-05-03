@@ -1,0 +1,200 @@
+<div style="max-height: 100vh; overflow-y: auto">
+  <form class="editor">
+    <div class="editor-textarea">
+      <section id="about" class="about">
+        <div class="container">
+          <div class="row" style="justify-content: center; align-items: center">
+            <div
+              class="col-lg-6 order-1 order-lg-2 d-flex justify-content-center"
+              data-aos="fade-left"
+            >
+              <br />
+              <img
+                class="img-fluid rounded-image p-lg-2"
+                [src]="objUser.base64_photo"
+                onerror="this.src='../../assets/img/UserErr.jpg'"
+                alt="imageDefect"
+              />
+            </div>
+            <div class="col-lg-6 content" data-aos="fade-right">
+              <div class="section-title">
+                <span>Settings and profile</span>
+                <h2>Settings and profile</h2>
+              </div>
+              <br />
+              <p class="text-intro"></p>
+              <form
+                #frmCreate="ngForm"
+                (submit)="frmCreate.form.valid && createUser(frmCreate)"
+                novalidate
+              >
+                <div class="form-group">
+                  <label for="fullName" class="form-label"
+                    ><strong>Full Name</strong></label
+                  >
+                  <input
+                    type="text"
+                    id="fullName"
+                    name="fullName"
+                    class="form-control"
+                    #fullName="ngModel"
+                    placeholder="Full Name"
+                    [(ngModel)]="objUser.full_name"
+                    [ngClass]="{
+                      'is-valid': frmCreate.submitted && fullName.valid,
+                      'is-invalid': frmCreate.submitted && fullName.invalid,
+                    }"
+                    required
+                    aria-describedby="fullNameHelp"
+                  />
+                  <small id="fullNameHelp" class="form-text text-muted"
+                    >Please enter your full name.</small
+                  >
+                </div>
+
+                <div class="form-group">
+                  <label for="email" class="form-label"
+                    ><strong>Email</strong></label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="email"
+                    name="email"
+                    placeholder="Email"
+                    #email="ngModel"
+                    [(ngModel)]="objUser.email_user"
+                    [ngClass]="{
+                      'is-valid': frmCreate.submitted && email.valid,
+                      'is-invalid': frmCreate.submitted && email.invalid,
+                    }"
+                    required
+                    aria-describedby="emailHelp"
+                  />
+                  <small id="emailHelp" class="form-text text-muted"
+                    >Please enter your email.</small
+                  >
+                </div>
+
+                <div class="form-group">
+                  <label for="pass" class="form-label"
+                    ><strong>Password</strong></label
+                  >
+                  <div class="input-group">
+                    <input
+                      type="{{ showPassword ? 'text' : 'password' }}"
+                      class="form-control"
+                      id="pass"
+                      name="pass"
+                      placeholder="Password"
+                      #passInput
+                      [(ngModel)]="objUser.password_user"
+                      [ngClass]="{
+                        'is-valid':
+                          frmCreate.submitted && passInput.checkValidity(),
+                        'is-invalid':
+                          frmCreate.submitted && !passInput.checkValidity()
+                      }"
+                      required
+                    />
+                    <button
+                      class="btn btn-outline-secondary eye-button"
+                      type="button"
+                      (click)="togglePassword()"
+                      aria-labelledby="passwordToggleButton"
+                    >
+                      <i
+                        class="fa"
+                        [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"
+                        aria-hidden="true"
+                      ></i>
+                    </button>
+                    <span id="passwordToggleButton" class="sr-only">{{
+                      showPassword ? "Hide password" : "Show password"
+                    }}</span>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="confirmPass" class="form-label"
+                    ><strong>Confirm Password</strong></label
+                  >
+                  <div class="input-group">
+                    <input
+                      type="{{ showConfirmPassword ? 'text' : 'password' }}"
+                      class="form-control"
+                      id="confirmPass"
+                      name="confirmPass"
+                      placeholder="Confirm Password"
+                      #confirmPassInput
+                      [(ngModel)]="confirmPassword"
+                      [ngClass]="{
+                        'is-valid': frmCreate.submitted && confirmPassword,
+                        'is-invalid': frmCreate.submitted && !confirmPassword
+                      }"
+                      required
+                    />
+                    <button
+                      class="btn btn-outline-secondary eye-button"
+                      type="button"
+                      (click)="toggleConfirmPassword()"
+                      aria-labelledby="passwordConfirmToggleButton"
+                    >
+                      <i
+                        class="fa"
+                        [ngClass]="
+                          showConfirmPassword ? 'fa-eye-slash' : 'fa-eye'
+                        "
+                        aria-hidden="true"
+                        aria-label="View confirm password"
+                      ></i>
+                    </button>
+                    <span id="passwordConfirmToggleButton" class="sr-only">{{
+                      showPassword ? "Hide password" : "Show password"
+                    }}</span>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="profile" class="form-label"
+                    ><strong>Profile</strong></label
+                  >
+                  <select
+                    id="profile"
+                    name="profile"
+                    class="form-select custom-select-arrow"
+                    #profile="ngModel"
+                    [(ngModel)]="objUser.profile"
+                    aria-label="Select profile"
+                    [ngClass]="{
+                      'is-valid': frmCreate.submitted && profile.valid,
+                      'is-invalid': frmCreate.submitted && profile.invalid,
+                    }"
+                    required
+                  >
+                    <option value="" disabled selected hidden>
+                      Select profile
+                    </option>
+                    <option value="1">ADMIN</option>
+                    <option value="2">USER</option>
+                  </select>
+                </div>
+
+                <div class="d-flex justify-content-center mt-4">
+                  <button type="submit" class="button button--save">
+                    Create
+                  </button>
+                  <button
+                    class="button button--cancel"
+                    [routerLink]="'/private/dash/listUser'"
+                  >
+                    &nbsp;Exit &nbsp;
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </form>
+</div>

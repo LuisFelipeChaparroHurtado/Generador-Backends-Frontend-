@@ -1,0 +1,217 @@
+/* Style for the window panel */
+.window-panel {
+  background-color: #19194a;
+  padding: 2rem;
+  position: relative;
+  overflow-y: auto;
+}
+
+/* Style for the scrollbar in the panel */
+.window-panel::-webkit-scrollbar {
+  width: 15px;
+  background-color: #19194a;
+}
+
+/* Style for the scrollbar thumb */
+.window-panel::-webkit-scrollbar-thumb {
+  width: 5px;
+  border-radius: 99em;
+  background-color: #535377;
+  border: 5px solid #19194a;
+}
+
+/* Style for the background of the panel */
+.window-panel:after {
+  content: "";
+  width: calc(100% + 4rem);
+  height: 50px;
+  margin-left: -2rem;
+  bottom: -2rem;
+  background-image: linear-gradient(to top, #19194a 0%, transparent 100%);
+  display: block;
+  position: sticky;
+  z-index: 100;
+}
+
+/* Style for section titles */
+.section-title {
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #565656;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+/* Style for section titles within the panel */
+.window-panel .section-title {
+  color: #8c8ca5;
+}
+
+/* Style for the tree */
+.tree {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.explorer-list{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.explorer-list:before{
+  display: block;
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: calc(100% - 2em);
+  background-color: #535377;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+/* Style for the pseudo-element before the tree */
+.tree:before {
+  display: block;
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: calc(100% - 2em);
+  background-color: #535377;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.tree--prue:after{
+  position: absolute;
+  content: "";
+  display: block;
+  height: 2px;
+  width: 1rem;
+  background-color: #535377;
+  top: 1.25em;
+  left: -1rem;
+}
+
+
+/* Style for the pseudo-element after a subtree */
+.tree--sub:after {
+  position: absolute;
+  content: "";
+  display: block;
+  height: 2px;
+  width: 1rem;
+  background-color: #535377;
+  top: 1.25em;
+  left: -1rem;
+}
+
+/* Style for tree branch actions */
+.tree-branch-action {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Style for tree branch action buttons */
+.tree-branch-action button {
+  opacity: 0;
+  transition: 0.15s ease;
+  background-color: #535377;
+  color: #fff;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.75em;
+  width: 1rem;
+  height: 1rem;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
+
+/* Style for tree branch action buttons when hovered */
+.tree-branch-action button:hover {
+  background-color: #c6c6d2;
+  color: #19194a;
+}
+
+/* Style for tree branch actions when hovered */
+.tree-branch-action:hover button {
+  opacity: 1;
+}
+
+/* Style for tree branch links */
+.tree-branch-link {
+  color: inherit;
+  color: #c6c6d2;
+  text-decoration: none;
+  position: relative;
+  display: block;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  transition: 0.15s ease;
+}
+
+/* Style for the pseudo-element before tree branch links */
+.tree-branch-link:before {
+  position: absolute;
+  content: "";
+  display: block;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background-color: #19194a;
+  border: 2px solid #535377;
+  top: 1em;
+  left: calc(-1rem - 4px);
+  z-index: 1;
+  transition: 0.15s ease;
+  transform-origin: 50% 50%;
+}
+
+/* Style for tree branch links when active or hovered */
+.tree-branch-link.active, .tree-branch-link:hover {
+  color: #fff;
+}
+
+/* Style for the pseudo-element before tree branch links when active or hovered */
+.tree-branch-link.active:before, .tree-branch-link:hover:before {
+  border-color: #fff;
+  transform: scale(1.25);
+}
+
+/* Style for the pseudo-elements before tree branch links with "404" class */
+.tree-branch-link--404:before {
+  border-radius: 0;
+  transform: rotate(45deg);
+}
+
+/* Style for the pseudo-elements before tree branch links with "404" class when hovered */
+.tree-branch-link--404:hover:before {
+  transform: scale(1.25) rotate(45deg);
+}
+
+/* Style for active tree branch links */
+.tree-branch-link.active {
+  font-weight: 500;
+}
+
+/* Style for the pseudo-elements before active tree branch links */
+.tree-branch-link.active:before {
+  background-color: #fff;
+}
+
+/* Style for publishing actions */
+.publish-actions {
+  display: flex;
+  align-items: center;
+}

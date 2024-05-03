@@ -1,0 +1,215 @@
+<div style="max-height: 100vh; overflow-y: auto">
+  <form class="editor">
+    <div class="editor-textarea">
+      <section id="about" class="about">
+        <div class="container">
+          <div class="row" style="justify-content: center; align-items: center">
+            <div
+              class="col-lg-6 order-1 order-lg-2 d-flex justify-content-center"
+              data-aos="fade-left"
+            >
+              <br />
+              <img
+                class="img-fluid rounded-image p-lg-2"
+                [src]="objUser.base64_photo"
+                onerror="this.src='../../assets/img/UserErr.jpg'"
+                alt="imageDefect"
+              />
+            </div>
+            <div class="col-lg-6 content" data-aos="fade-right">
+              <div class="section-title">
+                <span>Settings and profile</span>
+                <h2>Settings and profile</h2>
+              </div>
+              <br />
+              <p class="text-intro"></p>
+              <form
+                #frmUpdate="ngForm"
+                (submit)="frmUpdate.form.valid && updateProfile(frmUpdate)"
+                novalidate
+              >
+                <div class="form-group">
+                  <label for="fullName" class="form-label"
+                    ><strong>Full Name</strong></label
+                  >
+                  <input
+                    type="text"
+                    id="fullName"
+                    name="fullName"
+                    class="form-control"
+                    #fullName="ngModel"
+                    placeholder="Full Name"
+                    [(ngModel)]="objUser.full_name"
+                    [ngClass]="{
+                      'is-valid': frmUpdate.submitted && fullName.valid,
+                      'is-invalid': frmUpdate.submitted && fullName.invalid,
+                    }"
+                    required
+                    aria-describedby="fullNameHelp"
+                  />
+                  <small
+                    id="fullNameHelp"
+                    class="form-text text-muted"
+                    *ngIf="!objUser.full_name"
+                    >Please enter your full name.</small
+                  >
+                </div>
+
+                <div class="form-group">
+                  <label for="email" class="form-label"
+                    ><strong>Email</strong></label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="email"
+                    name="email"
+                    placeholder="Email"
+                    #email="ngModel"
+                    [(ngModel)]="objUser.email_user"
+                    [ngClass]="{
+                      'is-valid': frmUpdate.submitted && email.valid,
+                      'is-invalid': frmUpdate.submitted && email.invalid,
+                    }"
+                    required
+                    aria-describedby="emailHelp"
+                  />
+                  <small
+                    id="fullNameHelp"
+                    class="form-text text-muted"
+                    *ngIf="!objUser.email_user"
+                    >Please enter your email.</small
+                  >
+                </div>
+
+                <div class="form-group">
+                  <label for="pass" class="form-label"
+                    ><strong>Password</strong></label
+                  >
+                  <div class="input-group">
+                    <input
+                      type="{{ showPassword ? 'text' : 'password' }}"
+                      class="form-control"
+                      id="pass"
+                      name="pass"
+                      placeholder="Password"
+                      #passInput
+                      [(ngModel)]="objUser.password_user"
+                      [ngClass]="{
+                        'is-valid':
+                          frmUpdate.submitted && passInput.checkValidity(),
+                        'is-invalid':
+                          frmUpdate.submitted && !passInput.checkValidity()
+                      }"
+                      required
+                    />
+                    <button
+                      class="btn btn-outline-secondary eye-button"
+                      type="button"
+                      (click)="togglePassword()"
+                      aria-labelledby="passwordToggleButton"
+                    >
+                      <i
+                        class="fa"
+                        [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"
+                        aria-hidden="true"
+                      ></i>
+                    </button>
+                    <span id="passwordToggleButton" class="sr-only">{{
+                      showPassword ? "Hide password" : "Show password"
+                    }}</span>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="confirmPass" class="form-label"
+                    ><strong>Confirm Password</strong></label
+                  >
+                  <div class="input-group">
+                    <input
+                      type="{{ showConfirmPassword ? 'text' : 'password' }}"
+                      class="form-control"
+                      id="confirmPass"
+                      name="confirmPass"
+                      placeholder="Confirm Password"
+                      #confirmPassInput
+                      [(ngModel)]="confirmPassword"
+                      [ngClass]="{
+                        'is-valid': frmUpdate.submitted && confirmPassword,
+                        'is-invalid': frmUpdate.submitted && !confirmPassword
+                      }"
+                      required
+                    />
+                    <button
+                      class="btn btn-outline-secondary eye-button"
+                      type="button"
+                      (click)="toggleConfirmPassword()"
+                      aria-labelledby="passwordConfirmToggleButton"
+                    >
+                      <i
+                        class="fa"
+                        [ngClass]="
+                          showConfirmPassword ? 'fa-eye-slash' : 'fa-eye'
+                        "
+                        aria-hidden="true"
+                        aria-label="View confirm password"
+                      ></i>
+                    </button>
+                    <span id="passwordConfirmToggleButton" class="sr-only">{{
+                      showPassword ? "Hide password" : "Show password"
+                    }}</span>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="foto" class="form-label"
+                    ><strong>Profile Picture</strong></label
+                  >
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      id="foto"
+                      name="foto"
+                      placeholder="Select a photo"
+                      class="form-control"
+                      [(ngModel)]="objUser.name_photo"
+                    />
+                    <label for="file-upload" class="sr-only"
+                      >Upload picture</label
+                    >
+                    <input
+                      type="file"
+                      id="file-upload"
+                      #cajaOculta
+                      style="display: none"
+                      (change)="seleccionarFoto($event)"
+                    />
+                    <button
+                      class="btn btn-outline-secondary eye-button"
+                      type="button"
+                      aria-label="Select picture"
+                      (click)="cajaOculta.click()"
+                    >
+                      <i class="fa fa-plus" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-center mt-4">
+                  <button type="submit" class="button button--save">
+                    Update
+                  </button>
+                  <button
+                    class="button button--cancel"
+                    [routerLink]="'/private/dash/listUser'"
+                  >
+                    &nbsp;Exit &nbsp;
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </form>
+</div>

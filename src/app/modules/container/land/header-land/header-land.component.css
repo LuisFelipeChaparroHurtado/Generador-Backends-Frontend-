@@ -1,0 +1,117 @@
+/* Basic style for the body */
+body {
+  font-family: "Inter", sans-serif;
+  line-height: 1.5;
+  overflow-y: hidden;
+}
+
+/* Style for form elements */
+input,
+button,
+select,
+textarea {
+  font: inherit;
+}
+
+/* Style for navigation */
+.navigation {
+  padding: 3.75rem;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-between;
+}
+
+/* Style for top and bottom sections of navigation */
+.navigation-top,
+.navigation-bottom {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Style for navigation items */
+.navigation-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 6px;
+  color: #fff;
+  transition: 0.15s ease;
+  position: relative;
+}
+
+/* Adds a top margin of 0.5rem between consecutive navigation items */
+.navigation-item + * {
+  margin-top: 0.5rem;
+}
+
+/* Changes background color when the item is hovered or in an active state */
+.navigation-item:hover,
+.navigation-item.active {
+  background-color: #2b2a5b;
+}
+
+/* Style for the avatar image within a navigation item */
+.navigation-item .avatar {
+  max-width: 1.75rem;
+  max-height: 1.75rem;
+}
+
+/* Displays the title of a navigation item when hovered */
+.navigation-item:hover .navigation-item-title {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Adds a red dot notification style to navigation items */
+.navigation-item--notification::after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 8px;
+  height: 8px;
+  background-color: #3f5efb;
+  border-radius: 50%;
+  top: 8px;
+  right: 8px;
+}
+
+/* Style for the title of a navigation item */
+.navigation-item-title {
+  justify-self: flex-end;
+  position: absolute;
+  transform: scale(0);
+  transform-origin: 0% 50%;
+  left: calc(100% + 0.75rem);
+  opacity: 0;
+  transition: 0.15s ease;
+  width: auto;
+  z-index: 300;
+  background-color: #2b2a5b;
+  display: block;
+  white-space: nowrap;
+  padding: 0.5em 1em;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Pseudo-element before a navigation item title */
+.navigation-item-title:before {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  background-color: #2b2a5b;
+  transform: translateY(-50%) rotate(45deg);
+  left: -5px;
+  top: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Style for the top of navigation */
+.navigation-top {
+  overflow-y: visible;
+}

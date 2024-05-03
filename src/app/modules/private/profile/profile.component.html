@@ -1,0 +1,98 @@
+<div style="max-height: 100vh; overflow-y: auto">
+  <form class="editor">
+    <div class="editor-textarea">
+      <section id="about" class="about">
+        <div class="container">
+          <div class="row" style="justify-content: center; align-items: center">
+            <div
+              class="col-lg-4 order-1 order-lg-2 d-flex justify-content-center"
+              data-aos="fade-left"
+            >
+              <br />
+              <img
+                class="img-fluid rounded-image"
+                [src]="objUser.base64_photo"
+                alt="imageDefect"
+                onerror="this.src='../../assets/img/UserErr.jpg'"
+              />
+            </div>
+            <div class="col-lg-8 content" data-aos="fade-right">
+              <div class="section-title">
+                <span> Settings and profile</span>
+                <h2>Settings and profile</h2>
+              </div>
+              <br />
+              <div class="card">
+                <div
+                  class="card-header"
+                  style="background-color: #05043e; color: white"
+                >
+                  User information
+                </div>
+                <div class="card-body">
+                  <div class="form-group row">
+                    <label for="nombreCompleto" class="col-sm-4 col-form-label"
+                      ><strong>Full Name:</strong></label
+                    >
+                    <div class="col-sm-8 col-form-label">
+                      <p class="form-control-static" style="margin-bottom: 0">
+                        {{ objUser.full_name }}
+                      </p>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="email" class="col-sm-4 col-form-label"
+                      ><strong>Email:</strong></label
+                    >
+                    <div class="col-sm-8 col-form-label">
+                      <p class="form-control-static" style="margin-bottom: 0">
+                        {{ objUser.email_user }}
+                      </p>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="fechaCreacion" class="col-sm-4 col-form-label"
+                      ><strong> Creation date:</strong></label
+                    >
+                    <div class="col-sm-8 col-form-label">
+                      <p class="form-control-static" style="margin-bottom: 0">
+                        {{ formatDate(objUser.date_user) }}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="card-footer d-flex justify-content-end"
+                  style="background-color: #05043e; color: white"
+                >
+                  <ng-container *ngIf="objMySession.profile === 'ADMIN'">
+                    <!-- Muestra el botón solo si el perfil es 'ADMIN' -->
+                    <a
+                      [routerLink]="['/private/dash/listUser']"
+                      aria-label="List users"
+                    >
+                      <i
+                        class="bi bi-person-lines-fill"
+                        style="cursor: pointer; color: white"
+                      ></i>
+                    </a>
+                  </ng-container>
+                  &nbsp; &nbsp;
+                  <a
+                    [routerLink]="['/private/dash/updateUser', objMySession.id]"
+                    aria-label="Update users"
+                  >
+                    <i
+                      class="bi bi-pencil-square"
+                      style="cursor: pointer; color: white"
+                    ></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </form>
+</div>

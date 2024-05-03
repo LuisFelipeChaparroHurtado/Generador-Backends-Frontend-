@@ -1,0 +1,160 @@
+<header class="window-header" style="display: flex; justify-content: center">
+  <nav class="navigation">
+    <div class="navigation-top">
+      <a
+        [routerLink]="['/private/dash/menu']"
+        class="navigation-item"
+        routerLinkActive="active"
+      >
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3 9.5L12 4L21 9.5"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M19 13V19.4C19 19.7314 18.7314 20 18.4 20H5.6C5.26863 20 5 19.7314 5 19.4V13"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+        <span class="navigation-item-title">Home</span>
+      </a>
+      <a
+        [routerLink]="['/private/dash/connection']"
+        class="navigation-item"
+        routerLinkActive="active"
+      >
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.6 3H20.4C20.7314 3 21 3.26863 21 3.6V20.4C21 20.7314 20.7314 21 20.4 21H3.6C3.26863 21 3 20.7314 3 20.4V3.6C3 3.26863 3.26863 3 3.6 3Z"
+            stroke="currentColor"
+            stroke-width="1.5"
+          />
+          <path d="M9.75 9.75V21" stroke="currentColor" stroke-width="1.5" />
+          <path d="M3 9.75H21" stroke="currentColor" stroke-width="1.5" />
+        </svg>
+        <span class="navigation-item-title">Generator</span>
+      </a>
+    </div>
+    <div class="navigation-bottom">
+      <a class="navigation-item" (click)="toggleFullScreen()">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M5 7H3V3H9V5H5V7Z" fill="currentColor" />
+          <path d="M19 7H21V3H15V5H19V7Z" fill="currentColor" />
+          <path d="M19 17H21V21H15V19H19V17Z" fill="currentColor" />
+          <path d="M5 17H3V21H9V19H5V17Z" fill="currentColor" />
+        </svg>
+        <span class="navigation-item-title"> Enlarge screen</span>
+      </a>
+
+      <a class="navigation-item" [routerLink]="['/private/dash/profile']">
+        <svg
+          viewBox="0 0 36 36"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          width="80"
+          height="80"
+          colors="#b2cba3,#e0df9f,#e7a83e,#9a736e,#ea525f"
+          name="Babe Didrikson"
+          size="80"
+          class="avatar"
+        >
+          <mask
+            id="mask__beam"
+            maskUnits="userSpaceOnUse"
+            x="0"
+            y="0"
+            width="36"
+            height="36"
+          >
+            <rect width="36" height="36" rx="20" fill="white"></rect>
+          </mask>
+          <g mask="url(#mask__beam)" fill="transparent">
+            <rect width="36" height="36" rx="20" fill="#e7a83e"></rect>
+            <rect
+              x="0"
+              y="0"
+              width="36"
+              height="36"
+              transform="translate(-5 9) rotate(249 18 18) scale(1)"
+              fill="#ea525f"
+              rx="36"
+            ></rect>
+            <g transform="translate(-1 4.5) rotate(9 18 18)">
+              <path d="M13,19 a1,0.75 0 0,0 10,0" fill="black"></path>
+              <rect
+                x="10"
+                y="14"
+                width="1.5"
+                height="2"
+                rx="1"
+                stroke="none"
+                fill="black"
+              ></rect>
+              <rect
+                x="24"
+                y="14"
+                width="1.5"
+                height="2"
+                rx="1"
+                stroke="none"
+                fill="black"
+              ></rect>
+            </g>
+          </g>
+        </svg>
+        <span class="navigation-item-title">{{ objUser.full_name }} </span>
+      </a>
+      <a
+        class="navigation-item"
+        (click)="session.logOut()"
+        style="cursor: pointer"
+      >
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M3 5a2 2 0 012-2h5.586a1 1 0 01.707.293l1.414 1.414a1 1 0 01.293.707v1a1 1 0 01-1 1H5v10h10V10h2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"
+            fill="currentColor"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M15.707 7.707a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L18 10.414V18a1 1 0 11-2 0V10.414l-1.293 1.293a1 1 0 01-1.414-1.414l3-3z"
+            fill="currentColor"
+          />
+        </svg>
+        <span class="navigation-item-title">Exit</span>
+      </a>
+    </div>
+  </nav>
+</header>
